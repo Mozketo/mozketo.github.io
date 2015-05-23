@@ -1,0 +1,168 @@
+<html>
+  <head>
+    <meta content='Core Animation CAConstraint Grid-Cell Layout - Ben Clark-Robinson' property='og:title' />
+    <title>Core Animation CAConstraint Grid-Cell Layout - Ben Clark-Robinson</title>
+    <link href='favicon.ico' rel='shortcut icon'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/style.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/responsive.css' rel='stylesheet' type='text/css' />
+<!-- - -->
+<script src='/javascripts/jquery.js' type='text/javascript'></script>
+<script src='/javascripts/pd.js' type='text/javascript'></script>
+<script src='/javascripts/basics.js' type='text/javascript'></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<!-- - -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+<meta content="http://muan.co/images/og.png" property="og:image" />
+<meta content="" property="fb:app_id" />
+
+  <meta content='http://benclarkrobinson.net/caconstraint/cocoa/core%20animation/2009/02/03/core-animation-caconstraint-grid-cell-layout/' property='og:url' />
+  <meta content="I really wanted to get a nice Grid Layout using CAConstraint, but I found the situation getting very complex very fas..." property='og:description' />
+  <meta content="article" property="og:type" />
+
+<!-- - -->
+<script type='text/javascript'>
+  //<![CDATA[
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  //]]>
+</script>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=604714799556697";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  </head>
+  <body>
+    <header>
+<a id="go-back-home" href="/"><img src="/images/scribble.png" alt="scribble" width="53" height="59"></a>
+<p>Ben Clark-Robinson</p>
+</header>
+    <div id='container'>
+      <div class="block">
+  
+    <a target="_top" class="main" href="/uncategorized/2009/05/20/whos-ben-clark-robinson/">About</a>
+  
+    <a target="_blank" class="main" href="https://twitter.com/bclarkrobinson">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://github.com/mozketo">GitHub</a>
+  
+    <a target="_top" class="main" href="/apps/2014/07/18/announcing-freq-press-alpha-key-counter-for-windows/">FreqPress</a>
+  
+</div>
+      <section class="paging">
+  
+    <div class="left">
+      <a href="/caconstraint/cocoa/core%20animation/2009/02/02/why-is-caconstraint-not-working/">
+        ‹
+      </a>
+    </div>
+  
+  
+    <div class="right">
+      <a href="/uncategorized/2009/03/12/bluetooth-mouse-for-mac-os-x/">
+        ›
+      </a>
+    </div>
+  
+</section>
+      <div class="content">
+        <section class='post'>
+          <h1 class="upcase">
+            <div class='date'>03 Feb 2009</div>
+            Core Animation CAConstraint Grid-Cell Layout
+          </h1>
+          <p>I really wanted to get a nice Grid Layout using CAConstraint, but I found the situation getting very complex very fast as each Cell needed to be able to reference the location of the last Cell and whether or not the Cell needed to drop down to a new Row, and at times needed to also reference the @&ldquo;superlayer&rdquo;. There has to be a better way, right?</p>
+
+<p><a href="http://mozketo.com/wp-content/uploads/2009/02/caconstraint-gridlayout-sample.png"><img class="alignnone size-full wp-image-131" title="caconstraint-gridlayout-sample" src="http://mozketo.com/wp-content/uploads/2009/02/caconstraint-gridlayout-sample.png" alt="CAConstraint Grid-Cell Layout with Animations" width="351" height="172" /></a></p>
+
+<p>After a little digging around I was able to find an amazing Hot Chocolate <a href="http://devblog.brautaset.org/2008/10/01/calayer-grid-with-caconstraintlayoutmanager/">blog post</a> which showed a fantastic trick when laying out the Cells without having to reference the prior Cell. This approach takes advantage of knowing the Cell Row/Column position plus using the Scale: attribute of the CAConstraint on the @&ldquo;superlayer&rdquo; and it works like a charm.</p>
+
+<pre lang="objc" colla="+">[CAConstraint constraintWithAttribute: kCAConstraintWidth
+relativeTo: @"superlayer"
+attribute: kCAConstraintWidth
+scale: 1.0 / columns
+offset: 0]];</pre>
+
+<p>Want to change the number of Cells in the Grid? Modify these variables in this method:
+<pre lang="objc" colla="+">
+- (void)layoutCellsInGridLayer:(CALayer *)layer {
+    int columns = 6;
+    int rows = 6;...</pre></p>
+
+<p>Also to give the project a little bit of &ldquo;wow&rdquo; here&rsquo;s some random Y rotation on a Cell Layer:
+<pre lang="objc">- (void)setupFlipAnimationOnLayer:(CALayer *)layer {
+    float duration = (float)frandom(0.5, 5.0);</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">CABasicAnimation* animation = [CABasicAnimation animationWithKeyPath:@&quot;transform.rotation.y&quot;];
+animation.fromValue = [NSNumber numberWithDouble:-1.0f * M_PI];
+animation.toValue = [NSNumber numberWithDouble:1.0f * M_PI];
+animation.duration = duration;
+animation.repeatCount = 1e100f;
+animation.beginTime = CACurrentMediaTime() + frandom(0.1, 30);
+animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+
+[layer addAnimation:animation forKey:@&quot;rotationY&quot;];
+</code></pre></div>
+<p>}</pre></p>
+
+<p>To get the nice 3D perspective look the project needs the following code:
+<pre lang="objc">- (void)setupPerspectiveWithX:(float)x andY:(float)y {
+    CATransform3D transform = CATransform3DMakeRotation(x, 0, 1, 0);
+    transform = CATransform3DRotate(transform, y, 1, 0, 0);
+    float zDistance = -450;
+    transform.m34 = 1.0 / -zDistance;
+    gridLayer.sublayerTransform = transform;
+}</pre></p>
+
+<p>And one last final note: take a look in <code>createCellInParentLayer:</code> and you will see <code>layer.contents</code>. If you can provide your own image the layer will automatically Fill (<code>layer.contentsGravity = kCAGravityResizeAspectFill;</code>) and Mask (<code>layer.masksToBounds = YES;</code>)  to make it fit.</p>
+
+<p>You can grab the <a href='http://mozketo.com/wp-content/uploads/2009/02/caconstraint-grid-layout.zip'>code here</a> or download the <a href='http://mozketo.com/wp-content/uploads/2009/02/caconstraintgridlayoutapp.zip'>binary here</a> (requires Leopard).</p>
+
+          <br />
+<p>
+  Til next time,<br/>
+  Ben
+  <span class="muted">at 12:40</span>
+</p>
+<p>
+  <img src="/images/scribble3.png" alt="scribble" /> 
+</p>
+
+
+        </section>
+      </div>
+      
+
+      
+      <div class="block">
+  
+    <a target="_top" class="main" href="/uncategorized/2009/05/20/whos-ben-clark-robinson/">About</a>
+  
+    <a target="_blank" class="main" href="https://twitter.com/bclarkrobinson">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://github.com/mozketo">GitHub</a>
+  
+    <a target="_top" class="main" href="/apps/2014/07/18/announcing-freq-press-alpha-key-counter-for-windows/">FreqPress</a>
+  
+</div>
+    </div>
+    <footer>
+  <a href="http://github.com/muan/scribble" class="muted">built with Jekyll using Scribble theme</a>
+  <br />
+  <br />
+  <img src="/images/scribble2.png" alt="scribble" /> 
+</footer>
+  </body>
+</html>

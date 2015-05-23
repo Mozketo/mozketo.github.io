@@ -1,0 +1,151 @@
+<html>
+  <head>
+    <meta content='Bandwidth - Rackspace Cloud Server vs Rackspace Files - Ben Clark-Robinson' property='og:title' />
+    <title>Bandwidth - Rackspace Cloud Server vs Rackspace Files - Ben Clark-Robinson</title>
+    <link href='favicon.ico' rel='shortcut icon'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/style.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/responsive.css' rel='stylesheet' type='text/css' />
+<!-- - -->
+<script src='/javascripts/jquery.js' type='text/javascript'></script>
+<script src='/javascripts/pd.js' type='text/javascript'></script>
+<script src='/javascripts/basics.js' type='text/javascript'></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<!-- - -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+<meta content="http://muan.co/images/og.png" property="og:image" />
+<meta content="" property="fb:app_id" />
+
+  <meta content='http://benclarkrobinson.net/rackspace/uncategorized/2009/11/20/rackspace-cloud-vs-rackspace-files-bandwidth/' property='og:url' />
+  <meta content="I've recently been looking at hosting a complex JBoss/Apache project at Rackspace Cloud as opposed to our own servers..." property='og:description' />
+  <meta content="article" property="og:type" />
+
+<!-- - -->
+<script type='text/javascript'>
+  //<![CDATA[
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  //]]>
+</script>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=604714799556697";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  </head>
+  <body>
+    <header>
+<a id="go-back-home" href="/"><img src="/images/scribble.png" alt="scribble" width="53" height="59"></a>
+<p>Ben Clark-Robinson</p>
+</header>
+    <div id='container'>
+      <div class="block">
+  
+    <a target="_top" class="main" href="/uncategorized/2009/05/20/whos-ben-clark-robinson/">About</a>
+  
+    <a target="_blank" class="main" href="https://twitter.com/bclarkrobinson">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://github.com/mozketo">GitHub</a>
+  
+    <a target="_top" class="main" href="/apps/2014/07/18/announcing-freq-press-alpha-key-counter-for-windows/">FreqPress</a>
+  
+</div>
+      <section class="paging">
+  
+    <div class="left">
+      <a href="/kindle/2009/11/13/kindle/">
+        ‹
+      </a>
+    </div>
+  
+  
+    <div class="right">
+      <a href="/mercurial/source%20control/2009/11/23/mercurial-hgignore-for-xcodecocoa/">
+        ›
+      </a>
+    </div>
+  
+</section>
+      <div class="content">
+        <section class='post'>
+          <h1 class="upcase">
+            <div class='date'>20 Nov 2009</div>
+            Bandwidth - Rackspace Cloud Server vs Rackspace Files
+          </h1>
+          <p>I&rsquo;ve recently been looking at hosting a complex JBoss/Apache project at Rackspace Cloud as opposed to our own servers+pipe at work. </p>
+
+<p>I had changed the application to deliver the files from a CDN (in this case Rackspace Files) but thought &ldquo;well Rackspace Cloud might be on the same pipe(s) as Files and could kill two birds with one stone&rdquo;.</p>
+
+<p>Essentially I wanted to know the pipe difference between Rackspace <a href="http://www.rackspacecloud.com/cloud_hosting_products/servers">Cloud Servers</a> and Rackspace <a href="http://www.rackspacecloud.com/cloud_hosting_products/files">Files</a> and if Cloud was fast enough do away with Files.</p>
+
+<p><strong>The Test</strong></p>
+
+<p>Here&rsquo;s some <em>very</em> rudimentary results where I download a 9.6 MB zip file.</p>
+
+<p>Rackspace Cloud - Average download speed: 335 kb/s - Time: 27 seconds.
+Rackspace Files - Average download speed: 1154 kb/s - Time: 8 seconds.</p>
+
+<p>I used <code>curl -O http://.../content.zip</code> for the download test.</p>
+
+<p><strong>Conclusions</strong></p>
+
+<p>Rackspace Cloud doesn&rsquo;t use the same &ldquo;pipes&rdquo; as Rackspace Files (I&rsquo;ve never read that Rackspace claim, &ldquo;Cloud is as fast as Files&rdquo; I wasn&rsquo;t expecting the same results, just curious).</p>
+
+<p>A dedicated CDN is the best way to go for delivery of large files quickly. (Rackspace Files uses the Limelight Network). I&rsquo;ve heard rumours that Rackspace has Australian edge(s) and this seems to be the case.</p>
+
+<p>I will still want to use Rackspace Files for large content delivery.</p>
+
+<p><strong>Misc</strong></p>
+
+<p>I use TPG ADSL2+ at home and never seen downloads faster than 1250-1300 kb/s. Using a 2.16GHz Macbook Pro.</p>
+
+<p>At the time of writing: <a href="http://www.rackspacecloud.com/cloud_hosting_products/servers">Rackspace Cloud Server</a> is a cloud server hosting infrastructure. <a href="http://www.rackspacecloud.com/cloud_hosting_products/files">Rackspace Files</a> is a Content Delivery Network.</p>
+
+          <br />
+<p>
+  Til next time,<br/>
+  Ben
+  <span class="muted">at 21:45</span>
+</p>
+<p>
+  <img src="/images/scribble3.png" alt="scribble" /> 
+</p>
+
+
+        </section>
+      </div>
+      
+
+      
+      <div class="block">
+  
+    <a target="_top" class="main" href="/uncategorized/2009/05/20/whos-ben-clark-robinson/">About</a>
+  
+    <a target="_blank" class="main" href="https://twitter.com/bclarkrobinson">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://github.com/mozketo">GitHub</a>
+  
+    <a target="_top" class="main" href="/apps/2014/07/18/announcing-freq-press-alpha-key-counter-for-windows/">FreqPress</a>
+  
+</div>
+    </div>
+    <footer>
+  <a href="http://github.com/muan/scribble" class="muted">built with Jekyll using Scribble theme</a>
+  <br />
+  <br />
+  <img src="/images/scribble2.png" alt="scribble" /> 
+</footer>
+  </body>
+</html>

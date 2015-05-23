@@ -1,0 +1,25 @@
+title:            Ben Clark-Robinson
+description:      
+url:              http://benclarkrobinson.net
+signoff:          Ben
+disqus_shortname: # disqus comment thread for post header options. ( leave blank if unwanted. )
+facebook_appid:   # appid for like button, remove from /_includes/share.html if unwanted.
+google_analytics: # set tracking, remove from /javascripts/basic.js if unwanted.
+
+links:
+  - name:         About
+    url:          /uncategorized/2009/05/20/whos-ben-clark-robinson/
+  - name:         Twitter
+    url:          https://twitter.com/bclarkrobinson
+    external:     true
+  - name:         GitHub
+    url:          http://github.com/mozketo
+    external:     true
+  - name:         FreqPress
+    url:          /apps/2014/07/18/announcing-freq-press-alpha-key-counter-for-windows/
+highlighter:      pygments
+permalink:        pretty
+markdown:         redcarpet
+redcarpet:
+  extensions:
+    - smart

@@ -1,0 +1,174 @@
+<html>
+  <head>
+    <meta content='Mercurial .hgignore for C# and VB .net Projects - Ben Clark-Robinson' property='og:title' />
+    <title>Mercurial .hgignore for C# and VB .net Projects - Ben Clark-Robinson</title>
+    <link href='favicon.ico' rel='shortcut icon'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/style.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/responsive.css' rel='stylesheet' type='text/css' />
+<!-- - -->
+<script src='/javascripts/jquery.js' type='text/javascript'></script>
+<script src='/javascripts/pd.js' type='text/javascript'></script>
+<script src='/javascripts/basics.js' type='text/javascript'></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<!-- - -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+<meta content="http://muan.co/images/og.png" property="og:image" />
+<meta content="" property="fb:app_id" />
+
+  <meta content='http://benclarkrobinson.net/mercurial/source%20control/2009/07/28/mercurial-hignore/' property='og:url' />
+  <meta content="There's certain files and folders that you don't want to put into source control. With Mercurial all you need is a .h..." property='og:description' />
+  <meta content="article" property="og:type" />
+
+<!-- - -->
+<script type='text/javascript'>
+  //<![CDATA[
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  //]]>
+</script>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=604714799556697";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  </head>
+  <body>
+    <header>
+<a id="go-back-home" href="/"><img src="/images/scribble.png" alt="scribble" width="53" height="59"></a>
+<p>Ben Clark-Robinson</p>
+</header>
+    <div id='container'>
+      <div class="block">
+  
+    <a target="_top" class="main" href="/uncategorized/2009/05/20/whos-ben-clark-robinson/">About</a>
+  
+    <a target="_blank" class="main" href="https://twitter.com/bclarkrobinson">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://github.com/mozketo">GitHub</a>
+  
+    <a target="_top" class="main" href="/apps/2014/07/18/announcing-freq-press-alpha-key-counter-for-windows/">FreqPress</a>
+  
+</div>
+      <section class="paging">
+  
+    <div class="left">
+      <a href="/apple/cocoa/2009/06/02/resize-uiviewuitableview-when-keyboard-displays/">
+        ‹
+      </a>
+    </div>
+  
+  
+    <div class="right">
+      <a href="/fluent-nhibernate/uncategorized/2009/08/06/sql-compact-and-fluent-nhibernate/">
+        ›
+      </a>
+    </div>
+  
+</section>
+      <div class="content">
+        <section class='post'>
+          <h1 class="upcase">
+            <div class='date'>28 Jul 2009</div>
+            Mercurial .hgignore for C# and VB .net Projects
+          </h1>
+          <p>There&rsquo;s certain files and folders that you don&rsquo;t want to put into source control. With <a href="http://mercurial.selenic.com/wiki/">Mercurial </a>all you need is a .hgignore file in the root path of your project. A simple windowsy way of doing this is (from a command line) is by typing</p>
+
+<p><code>notepad c:\path<em>to</em>code.hgignore</code></p>
+
+<p>This will create the file so now simply add the following lines to the file:
+<pre lang="DOS" colla="+"></p>
+
+<h1>use glob syntax.</h1>
+
+<p>syntax: glob</p>
+
+<h1>Misc Mac/Windows stuff</h1>
+
+<p>.DS_Store
+Thumbs.db
+Desktop.ini</p>
+
+<h1>builds</h1>
+
+<p>*.exe
+*.ex_</p>
+
+<h1>vb6</h1>
+
+<p>*.SCC
+*.vbw
+*.pdb
+*.log
+*.Log</p>
+
+<h1>c-sharp</h1>
+
+<h1>ProjectName/bin</h1>
+
+<h1>ProjectName/obj</h1>
+
+<p><em>.user
+*.suo
+_ReSharper.</em>
+*.sln.cache
+</pre></p>
+
+<p><strong>Note:</strong> You need to change #ProjectName to your project foldername.</p>
+
+<p>Now feel free to init/add/commit:</p>
+
+<pre lang="DOS" colla="+">
+hg init
+hg add
+hg commit -m "Initial Commit with ignores"
+</pre>
+
+          <br />
+<p>
+  Til next time,<br/>
+  Ben
+  <span class="muted">at 21:26</span>
+</p>
+<p>
+  <img src="/images/scribble3.png" alt="scribble" /> 
+</p>
+
+
+        </section>
+      </div>
+      
+
+      
+      <div class="block">
+  
+    <a target="_top" class="main" href="/uncategorized/2009/05/20/whos-ben-clark-robinson/">About</a>
+  
+    <a target="_blank" class="main" href="https://twitter.com/bclarkrobinson">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://github.com/mozketo">GitHub</a>
+  
+    <a target="_top" class="main" href="/apps/2014/07/18/announcing-freq-press-alpha-key-counter-for-windows/">FreqPress</a>
+  
+</div>
+    </div>
+    <footer>
+  <a href="http://github.com/muan/scribble" class="muted">built with Jekyll using Scribble theme</a>
+  <br />
+  <br />
+  <img src="/images/scribble2.png" alt="scribble" /> 
+</footer>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"  xmlns:dc="http://purl.org/dc/elements/1.1/">
+   <channel>
+      <title>Freq Press App Changelog</title>
+      <link>http://benclarkrobinson.net/apps/freq-press/sparklecast.xml</link>
+      <description>Most recent changes with links to updates.</description>
+      <language>en</language>      
+         <item>
+            <title>Version 1.7 (Beta)</title>
+			<description>
+				Counting your keypresses and clicks one event at a time.
+			</description>
+            <pubDate>Tue, 22 May 2014 21:00:00 +0000</pubDate>
+            <sparkle:releaseNotesLink>http://benclarkrobinson.net/apps/freq-press/release-notes.html</sparkle:releaseNotesLink>
+            <enclosure url="http://benclarkrobinson.net/apps/freq-press/Install FreqPress.zip" sparkle:version="1.7.0.0" length="1200000" type="application/octet-stream"/>
+         </item>
+   </channel>
+</rss>

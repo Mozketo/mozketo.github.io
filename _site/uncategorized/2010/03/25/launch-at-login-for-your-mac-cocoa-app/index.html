@@ -1,0 +1,166 @@
+<html>
+  <head>
+    <meta content='Launch at Login Controller for your Mac Cocoa App - Ben Clark-Robinson' property='og:title' />
+    <title>Launch at Login Controller for your Mac Cocoa App - Ben Clark-Robinson</title>
+    <link href='favicon.ico' rel='shortcut icon'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/style.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/responsive.css' rel='stylesheet' type='text/css' />
+<!-- - -->
+<script src='/javascripts/jquery.js' type='text/javascript'></script>
+<script src='/javascripts/pd.js' type='text/javascript'></script>
+<script src='/javascripts/basics.js' type='text/javascript'></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<!-- - -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+<meta content="http://muan.co/images/og.png" property="og:image" />
+<meta content="" property="fb:app_id" />
+
+  <meta content='http://benclarkrobinson.net/uncategorized/2010/03/25/launch-at-login-for-your-mac-cocoa-app/' property='og:url' />
+  <meta content="Ever needed your Cocoa/Objective-C application to Launch at Login? And also have your app appear in your users System..." property='og:description' />
+  <meta content="article" property="og:type" />
+
+<!-- - -->
+<script type='text/javascript'>
+  //<![CDATA[
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  //]]>
+</script>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=604714799556697";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  </head>
+  <body>
+    <header>
+<a id="go-back-home" href="/"><img src="/images/scribble.png" alt="scribble" width="53" height="59"></a>
+<p>Ben Clark-Robinson</p>
+</header>
+    <div id='container'>
+      <div class="block">
+  
+    <a target="_top" class="main" href="/uncategorized/2009/05/20/whos-ben-clark-robinson/">About</a>
+  
+    <a target="_blank" class="main" href="https://twitter.com/bclarkrobinson">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://github.com/mozketo">GitHub</a>
+  
+    <a target="_top" class="main" href="/apps/2014/07/18/announcing-freq-press-alpha-key-counter-for-windows/">FreqPress</a>
+  
+</div>
+      <section class="paging">
+  
+    <div class="left">
+      <a href="/apple/caemitterlayer/core%20animation/2010/02/24/barebones-caemitterlayer-aka-particle-effects/">
+        ‹
+      </a>
+    </div>
+  
+  
+    <div class="right">
+      <a href="/visual%20studio/2011/02/09/ironruby-in-visual-studio-console-tips/">
+        ›
+      </a>
+    </div>
+  
+</section>
+      <div class="content">
+        <section class='post'>
+          <h1 class="upcase">
+            <div class='date'>25 Mar 2010</div>
+            Launch at Login Controller for your Mac Cocoa App
+          </h1>
+          <p>Ever needed your Cocoa/Objective-C application to Launch at Login? And also have your app appear in your users System Preferences &gt; Accounts &gt; Login Items list? Want this integration to be super-mega-piss-easy?</p>
+
+<p>Well now you can.</p>
+
+<p>We&rsquo;re going to wrap LSSharedFileList to get our App to start at login - a Cocoa solution - as opposed to other solutions that use Carbon or having to edit XML system pref files.</p>
+
+<p>Take a look at <a href="http://github.com/Mozketo/LaunchAtLoginController">Github - Launch at Login</a> for the source. Don&rsquo;t forget to look at the readme for assistance for implementation.</p>
+
+<p>Basically copy the LaunchAtLoginController.h/.m files into your project then either you can implement with Code or with Interface Builder.</p>
+
+<h2>Code</h2>
+
+<p><em>Will app launch at login?</em></p>
+
+<pre lang="objc" colla="+">
+LaunchAtLoginController *launchController = [[LaunchAtLoginController alloc] init];
+BOOL launch = [launchController launchAtLogin];
+[launchController release];
+</pre>
+
+<p><em>Set launch at login state.</em></p>
+
+<pre lang="objc" colla="+">
+LaunchAtLoginController *launchController = [[LaunchAtLoginController alloc] init];
+[launchController setLaunchAtLogin:YES];
+[launchController release];
+</pre>
+
+<h2>IB</h2>
+
+<ul>
+    <li>Open Interface Builder</li>
+    <li>Place a NSObject (the blue box) into the nib window</li>
+    <li>From the Inspector - Identity Tab (Cmd+6) set the Class to LaunchAtLoginController</li>
+    <li>Place a Checkbox on your Window/View</li>
+    <li>From the Inspector - Bindings Tab (Cmd+4) unroll the > Value item</li>
+        <li>Bind to Launch at Login Controller</li>
+    <li>Model Key Path: launchAtLogin</li>
+</ul>
+
+<p>Easy right?</p>
+
+<p>So what are you waiting for? Grab the code from <a href="http://github.com/Mozketo/LaunchAtLoginController">Github - Launch at Login</a></p>
+
+          <br />
+<p>
+  Til next time,<br/>
+  Ben
+  <span class="muted">at 19:15</span>
+</p>
+<p>
+  <img src="/images/scribble3.png" alt="scribble" /> 
+</p>
+
+
+        </section>
+      </div>
+      
+
+      
+      <div class="block">
+  
+    <a target="_top" class="main" href="/uncategorized/2009/05/20/whos-ben-clark-robinson/">About</a>
+  
+    <a target="_blank" class="main" href="https://twitter.com/bclarkrobinson">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://github.com/mozketo">GitHub</a>
+  
+    <a target="_top" class="main" href="/apps/2014/07/18/announcing-freq-press-alpha-key-counter-for-windows/">FreqPress</a>
+  
+</div>
+    </div>
+    <footer>
+  <a href="http://github.com/muan/scribble" class="muted">built with Jekyll using Scribble theme</a>
+  <br />
+  <br />
+  <img src="/images/scribble2.png" alt="scribble" /> 
+</footer>
+  </body>
+</html>

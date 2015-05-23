@@ -1,0 +1,165 @@
+<html>
+  <head>
+    <meta content='Determine if a String IsNumeric in C# - Ben Clark-Robinson' property='og:title' />
+    <title>Determine if a String IsNumeric in C# - Ben Clark-Robinson</title>
+    <link href='favicon.ico' rel='shortcut icon'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/style.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/responsive.css' rel='stylesheet' type='text/css' />
+<!-- - -->
+<script src='/javascripts/jquery.js' type='text/javascript'></script>
+<script src='/javascripts/pd.js' type='text/javascript'></script>
+<script src='/javascripts/basics.js' type='text/javascript'></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<!-- - -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+<meta content="http://muan.co/images/og.png" property="og:image" />
+<meta content="" property="fb:app_id" />
+
+  <meta content='http://benclarkrobinson.net/c%23/2011/03/24/determine-if-a-string-isnumeric-in-c/' property='og:url' />
+  <meta content="I've seen several implmentations of an IsNumeric() method in C# and all of them are woeful. Some examples involve cas..." property='og:description' />
+  <meta content="article" property="og:type" />
+
+<!-- - -->
+<script type='text/javascript'>
+  //<![CDATA[
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  //]]>
+</script>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=604714799556697";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  </head>
+  <body>
+    <header>
+<a id="go-back-home" href="/"><img src="/images/scribble.png" alt="scribble" width="53" height="59"></a>
+<p>Ben Clark-Robinson</p>
+</header>
+    <div id='container'>
+      <div class="block">
+  
+    <a target="_top" class="main" href="/uncategorized/2009/05/20/whos-ben-clark-robinson/">About</a>
+  
+    <a target="_blank" class="main" href="https://twitter.com/bclarkrobinson">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://github.com/mozketo">GitHub</a>
+  
+    <a target="_top" class="main" href="/apps/2014/07/18/announcing-freq-press-alpha-key-counter-for-windows/">FreqPress</a>
+  
+</div>
+      <section class="paging">
+  
+    <div class="left">
+      <a href="/apple/ios/2011/03/07/how-to-use-ios-home-sharing/">
+        ‹
+      </a>
+    </div>
+  
+  
+    <div class="right">
+      <a href="/visual%20studio/2011/07/17/speed-up-visual-studio-2010/">
+        ›
+      </a>
+    </div>
+  
+</section>
+      <div class="content">
+        <section class='post'>
+          <h1 class="upcase">
+            <div class='date'>24 Mar 2011</div>
+            Determine if a String IsNumeric in C#
+          </h1>
+          <p>I&rsquo;ve seen several implmentations of an IsNumeric() method in C# and all of them are woeful. Some examples involve casting and catch then catching exception, other (worse) examples recommend using Regular Expressions to check for only digits (no joke)!</p>
+
+<p>Here&rsquo;s a nice and simple Extension Method to determine if a string IsNumeric().</p>
+
+<pre lang="csharp" colla="+">
+/// <summary>
+/// Determines whether the specified string is numeric.
+/// </summary>
+public static bool IsNumeric(this string input)
+{
+    double value;
+    return double.TryParse(input, out value);
+}
+</pre>
+
+<p>I&rsquo;ve even got some very simple Unit Tests to go with it (I understand I should not unit test .NET, but I wanted to ensure my implementation was fine).</p>
+
+<pre lang="csharp" colla="+">
+[TestMethod]
+public void IsNumeric_Numeric_String_Should_Evaluate_True()
+{
+    var expected = true;
+    var text = "123456789.5";
+
+    var actual = text.IsNumeric();
+
+    Assert.AreEqual(expected, actual);
+}
+
+[TestMethod]
+public void IsNumeric_Not_Numeric_String_Should_Evaluate_False()
+{
+    var expected = false;
+    var text = "123456789rabbits";
+
+    var actual = text.IsNumeric();
+
+    Assert.AreEqual(expected, actual);
+}
+</pre>
+
+<p>Updated (5-June-2011): This method only tested whole numbers, decimals are now supported.</p>
+
+          <br />
+<p>
+  Til next time,<br/>
+  Ben
+  <span class="muted">at 12:47</span>
+</p>
+<p>
+  <img src="/images/scribble3.png" alt="scribble" /> 
+</p>
+
+
+        </section>
+      </div>
+      
+
+      
+      <div class="block">
+  
+    <a target="_top" class="main" href="/uncategorized/2009/05/20/whos-ben-clark-robinson/">About</a>
+  
+    <a target="_blank" class="main" href="https://twitter.com/bclarkrobinson">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://github.com/mozketo">GitHub</a>
+  
+    <a target="_top" class="main" href="/apps/2014/07/18/announcing-freq-press-alpha-key-counter-for-windows/">FreqPress</a>
+  
+</div>
+    </div>
+    <footer>
+  <a href="http://github.com/muan/scribble" class="muted">built with Jekyll using Scribble theme</a>
+  <br />
+  <br />
+  <img src="/images/scribble2.png" alt="scribble" /> 
+</footer>
+  </body>
+</html>

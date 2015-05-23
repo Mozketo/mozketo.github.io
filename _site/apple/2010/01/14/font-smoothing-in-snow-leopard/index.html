@@ -1,0 +1,148 @@
+<html>
+  <head>
+    <meta content='Font Smoothing in Snow Leopard with a 3rd Party LCD - Ben Clark-Robinson' property='og:title' />
+    <title>Font Smoothing in Snow Leopard with a 3rd Party LCD - Ben Clark-Robinson</title>
+    <link href='favicon.ico' rel='shortcut icon'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/style.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/responsive.css' rel='stylesheet' type='text/css' />
+<!-- - -->
+<script src='/javascripts/jquery.js' type='text/javascript'></script>
+<script src='/javascripts/pd.js' type='text/javascript'></script>
+<script src='/javascripts/basics.js' type='text/javascript'></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<!-- - -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+<meta content="http://muan.co/images/og.png" property="og:image" />
+<meta content="" property="fb:app_id" />
+
+  <meta content='http://benclarkrobinson.net/apple/2010/01/14/font-smoothing-in-snow-leopard/' property='og:url' />
+  <meta content="Having connected a 3rd party (Polyview) 19" LCD into the work MacBook Pro I was struck by how poor any on screen text..." property='og:description' />
+  <meta content="article" property="og:type" />
+
+<!-- - -->
+<script type='text/javascript'>
+  //<![CDATA[
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  //]]>
+</script>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=604714799556697";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  </head>
+  <body>
+    <header>
+<a id="go-back-home" href="/"><img src="/images/scribble.png" alt="scribble" width="53" height="59"></a>
+<p>Ben Clark-Robinson</p>
+</header>
+    <div id='container'>
+      <div class="block">
+  
+    <a target="_top" class="main" href="/uncategorized/2009/05/20/whos-ben-clark-robinson/">About</a>
+  
+    <a target="_blank" class="main" href="https://twitter.com/bclarkrobinson">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://github.com/mozketo">GitHub</a>
+  
+    <a target="_top" class="main" href="/apps/2014/07/18/announcing-freq-press-alpha-key-counter-for-windows/">FreqPress</a>
+  
+</div>
+      <section class="paging">
+  
+    <div class="left">
+      <a href="/mercurial/source%20control/2009/11/23/mercurial-hgignore-for-xcodecocoa/">
+        ‹
+      </a>
+    </div>
+  
+  
+    <div class="right">
+      <a href="/ruby%20on%20rails/2010/01/15/installing-ruby-on-rails-on-ubuntu-karmic-koala/">
+        ›
+      </a>
+    </div>
+  
+</section>
+      <div class="content">
+        <section class='post'>
+          <h1 class="upcase">
+            <div class='date'>14 Jan 2010</div>
+            Font Smoothing in Snow Leopard with a 3rd Party LCD
+          </h1>
+          <p>Having connected a 3rd party (Polyview) 19&quot; LCD into the work MacBook Pro I was struck by how poor any on screen text rendered. Trying to use Terminal.app was just aweful, all jaggy and hard to read.</p>
+
+<p>It turns out that font smoothing (aka sub-pixel antialiasing) on the 3rd party screen wasn&rsquo;t happening and OS X was defaulting the font smoothing to CRT. Take a look at the screenshots below, bad eh?</p>
+
+<p>[caption id=&ldquo;attachment_283&rdquo; align=&ldquo;alignnone&rdquo; width=&ldquo;638&rdquo; caption=&ldquo;Antialiasing for CRTs, ewwwww.&rdquo;]<a href="http://mozketo.com/wp-content/uploads/2010/01/Screen-shot-2010-01-14-at-9.41.38-AM.png"><img src="http://mozketo.com/wp-content/uploads/2010/01/Screen-shot-2010-01-14-at-9.41.38-AM.png" alt="" title="Screen shot 2010-01-14 at 9.41.38 AM" width="638" height="61" class="size-full wp-image-283" /></a>[/caption]</p>
+
+<p>[caption id=&ldquo;attachment_284&rdquo; align=&ldquo;alignnone&rdquo; width=&ldquo;637&rdquo; caption=&ldquo;Antialiasing fixed!&rdquo;]<a href="http://mozketo.com/wp-content/uploads/2010/01/Screen-shot-2010-01-14-at-9.42.53-AM.png"><img src="http://mozketo.com/wp-content/uploads/2010/01/Screen-shot-2010-01-14-at-9.42.53-AM.png" alt="" title="Screen shot 2010-01-14 at 9.42.53 AM" width="637" height="56" class="size-full wp-image-284" /></a>[/caption]</p>
+
+<h3>How to fix the problem?</h3>
+
+<p>Open up terminal and paste in the following:</p>
+
+<p><code>defaults -currentHost write -globalDomain AppleFontSmoothing -int 2</code></p>
+
+<p>or if you find the text a little large/blurry you can try:</p>
+
+<p><code>defaults -currentHost write -globalDomain AppleFontSmoothing -int 1</code></p>
+
+<p>Now logout &gt; login.</p>
+
+<h3>So what&rsquo;s up?</h3>
+ 
+
+<p>The whole Snow Leopard font smoothing issue seems strange and why Apple changed the font smooth dialog is beyond me. But you can read more about it here 
+<a href="http://blog.jjgod.org/2009/08/18/snow-leopard-vs-dell-lcd-displays/">jjgod / blog &gt; Snow Leopard vs. 3rd Party LCD Displays</a> if you&rsquo;d like to know a little more about the problem.</p>
+
+          <br />
+<p>
+  Til next time,<br/>
+  Ben
+  <span class="muted">at 10:11</span>
+</p>
+<p>
+  <img src="/images/scribble3.png" alt="scribble" /> 
+</p>
+
+
+        </section>
+      </div>
+      
+
+      
+      <div class="block">
+  
+    <a target="_top" class="main" href="/uncategorized/2009/05/20/whos-ben-clark-robinson/">About</a>
+  
+    <a target="_blank" class="main" href="https://twitter.com/bclarkrobinson">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://github.com/mozketo">GitHub</a>
+  
+    <a target="_top" class="main" href="/apps/2014/07/18/announcing-freq-press-alpha-key-counter-for-windows/">FreqPress</a>
+  
+</div>
+    </div>
+    <footer>
+  <a href="http://github.com/muan/scribble" class="muted">built with Jekyll using Scribble theme</a>
+  <br />
+  <br />
+  <img src="/images/scribble2.png" alt="scribble" /> 
+</footer>
+  </body>
+</html>

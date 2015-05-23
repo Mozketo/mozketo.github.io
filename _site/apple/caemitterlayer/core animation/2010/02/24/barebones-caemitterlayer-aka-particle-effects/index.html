@@ -1,0 +1,178 @@
+<html>
+  <head>
+    <meta content='Barebones CAEmitterLayer aka Particle Effects - Ben Clark-Robinson' property='og:title' />
+    <title>Barebones CAEmitterLayer aka Particle Effects - Ben Clark-Robinson</title>
+    <link href='favicon.ico' rel='shortcut icon'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/style.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/responsive.css' rel='stylesheet' type='text/css' />
+<!-- - -->
+<script src='/javascripts/jquery.js' type='text/javascript'></script>
+<script src='/javascripts/pd.js' type='text/javascript'></script>
+<script src='/javascripts/basics.js' type='text/javascript'></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<!-- - -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+<meta content="http://muan.co/images/og.png" property="og:image" />
+<meta content="" property="fb:app_id" />
+
+  <meta content='http://benclarkrobinson.net/apple/caemitterlayer/core%20animation/2010/02/24/barebones-caemitterlayer-aka-particle-effects/' property='og:url' />
+  <meta content="CAEmitterLayer: use to create particle effects. Each particle is an instance of CAEmitterCell. (10.6) - cocoadevcentr..." property='og:description' />
+  <meta content="article" property="og:type" />
+
+<!-- - -->
+<script type='text/javascript'>
+  //<![CDATA[
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  //]]>
+</script>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=604714799556697";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  </head>
+  <body>
+    <header>
+<a id="go-back-home" href="/"><img src="/images/scribble.png" alt="scribble" width="53" height="59"></a>
+<p>Ben Clark-Robinson</p>
+</header>
+    <div id='container'>
+      <div class="block">
+  
+    <a target="_top" class="main" href="/uncategorized/2009/05/20/whos-ben-clark-robinson/">About</a>
+  
+    <a target="_blank" class="main" href="https://twitter.com/bclarkrobinson">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://github.com/mozketo">GitHub</a>
+  
+    <a target="_top" class="main" href="/apps/2014/07/18/announcing-freq-press-alpha-key-counter-for-windows/">FreqPress</a>
+  
+</div>
+      <section class="paging">
+  
+    <div class="left">
+      <a href="/uncategorized/2010/02/23/ipad-user-agent-string/">
+        ‹
+      </a>
+    </div>
+  
+  
+    <div class="right">
+      <a href="/uncategorized/2010/03/25/launch-at-login-for-your-mac-cocoa-app/">
+        ›
+      </a>
+    </div>
+  
+</section>
+      <div class="content">
+        <section class='post'>
+          <h1 class="upcase">
+            <div class='date'>24 Feb 2010</div>
+            Barebones CAEmitterLayer aka Particle Effects
+          </h1>
+          <blockquote>CAEmitterLayer: use to create particle effects. Each particle is an instance of CAEmitterCell. (10.6) - <a href="http://twitter.com/cocoadevcentral/status/3607680055">cocoadevcentral</a></blockquote>
+
+<p>How could you not be intrigued? Particle Effects! Well I&rsquo;ve always been interested in Particle Generators, and there&rsquo;s one right here in Snow Leopard. How exciting. /claps.</p>
+
+<p>I recently took a look at the Fire and Fireworks sample code that Apple and was duly impressed by what Core Animation provides for so little cost both code-wise and CPU resources. So I decided to write the simplest - barebones - <a href="http://developer.apple.com/mac/library/documentation/GraphicsImaging/Reference/CAEmitterLayer_class/Reference/Reference.html">CAEmitterLayer</a> code where I was only dependant on the NSView it draws on.</p>
+
+<p>There&rsquo;s no fancy-pants stuff going on here, just a raw, simple, single particle effect. But it gives you a great perspective on how it works and the minimal code required to have a great particle animation.</p>
+
+<p><a href="/wp-content/uploads/2010/02/particle_01_01.png"><img src="/wp-content/uploads/2010/02/particle_01_01.png" alt="Screenshot of this project" title="particle_01_01" width="531" height="519" class="alignnone size-full wp-image-362" /></a></p>
+
+<p>If you&rsquo;re starting afresh you&rsquo;re going to need to tell your project that we want to use Core Animation so:</p>
+
+<ul>
+        <li>Right click the Frameworks > Linked Frameworks on the left,</li>
+    <li>Add > Existing Frameworks&hellip;</li>
+    <li>Scroll to QuartzCore.framework > Add,</li>
+    <li>And make sure your ParticleController header file contains <code>#import &lt;QuartzCore/QuartzCore.h&gt;</code>.</li>
+</ul>
+
+<p>Looking at CAEmitterLayer briefly (and ignoring setting up Interface Builder &amp; the Nib) in our header file we simply need a CAEmitterLayer:</p>
+
+<pre lang="objc" colla="+">
+IBOutlet NSView *view;
+CALayer *rootLayer;
+CAEmitterLayer *emitter;
+</pre>
+
+<p>Where as the implementation file is going to need a whole lot of data for the Emitter plus we need to create a CAEmitterCell for the particle itself.</p>
+
+<pre lang="objc" colla="+">
+//Create the emitter layer
+emitter = [CAEmitterLayer layer];
+emitter.emitterPosition = CGPointMake(CGRectGetMidX(rootLayer.bounds), CGRectGetMidY(rootLayer.bounds));
+emitter.emitterMode = kCAEmitterLayerOutline;
+emitter.emitterShape = kCAEmitterLayerCircle;
+emitter.renderMode = kCAEmitterLayerAdditive;
+emitter.emitterSize = CGSizeMake(50 * multiplier, 0);
+    
+//Create the emitter cell
+CAEmitterCell* particle = [CAEmitterCell emitterCell];
+particle.emissionLongitude = M_PI;
+particle.birthRate = multiplier * 1000.0;
+particle.lifetime = multiplier;
+particle.lifetimeRange = multiplier * 0.35;
+particle.velocity = 180;
+particle.velocityRange = 130;
+particle.emissionRange = 1.1;
+particle.scaleSpeed = 0.3;
+CGColorRef color = CGColorCreateGenericRGB(0.3, 0.4, 0.9, 0.10);
+particle.color = color;
+CGColorRelease(color);
+particle.contents = (id) [self CGImageNamed:@"spark.png"];
+</pre>
+
+<p>For the complete implementation file or the complete project please <a href="http://bitbucket.org/Mozketo/barebones-ca-particles-01">feel free to grab the source code from the bitbucket project</a>.</p>
+
+          <br />
+<p>
+  Til next time,<br/>
+  Ben
+  <span class="muted">at 22:18</span>
+</p>
+<p>
+  <img src="/images/scribble3.png" alt="scribble" /> 
+</p>
+
+
+        </section>
+      </div>
+      
+
+      
+      <div class="block">
+  
+    <a target="_top" class="main" href="/uncategorized/2009/05/20/whos-ben-clark-robinson/">About</a>
+  
+    <a target="_blank" class="main" href="https://twitter.com/bclarkrobinson">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://github.com/mozketo">GitHub</a>
+  
+    <a target="_top" class="main" href="/apps/2014/07/18/announcing-freq-press-alpha-key-counter-for-windows/">FreqPress</a>
+  
+</div>
+    </div>
+    <footer>
+  <a href="http://github.com/muan/scribble" class="muted">built with Jekyll using Scribble theme</a>
+  <br />
+  <br />
+  <img src="/images/scribble2.png" alt="scribble" /> 
+</footer>
+  </body>
+</html>
