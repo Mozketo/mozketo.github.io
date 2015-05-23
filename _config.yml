@@ -15,6 +15,9 @@ links:
   - name:         GitHub
     url:          http://github.com/mozketo
     external:     true
+  - name:         LinkedIn
+    url:          https://au.linkedin.com/in/benclarkrobinson
+    external:     true
   - name:         FreqPress
     url:          /apps/2014/07/18/announcing-freq-press-alpha-key-counter-for-windows/
 highlighter:      pygments
