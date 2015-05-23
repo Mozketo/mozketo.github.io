@@ -8,7 +8,7 @@ google_analytics: # set tracking, remove from /javascripts/basic.js if unwanted.
 
 links:
   - name:         About
-    url:          /uncategorized/2009/05/20/whos-ben-clark-robinson/
+    url:          /profile/2009/05/20/whos-ben-clark-robinson/
   - name:         Twitter
     url:          https://twitter.com/bclarkrobinson
     external:     true
