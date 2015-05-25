@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Fixing Visual Studio's error 'The project location is not trusted'
+title: Visual Studio's error 'The project location is not trusted'
 date: 2009-09-29 22:27
 author: bclarkrobinson
 comments: true

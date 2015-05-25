@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Using MSBuild Community Tasks XmlRead and XmlUpdate
+title: MSBuild Community Tasks XmlRead and XmlUpdate
 date: 2013-03-01 08:50
 author: bclarkrobinson
 comments: true
