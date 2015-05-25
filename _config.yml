@@ -18,7 +18,7 @@ links:
   - name:         LinkedIn
     url:          https://au.linkedin.com/in/benclarkrobinson
     external:     true
-  - name:         FreqPress
+  - name:         Download FreqPress
     url:          /apps/2014/07/18/announcing-freq-press-alpha-key-counter-for-windows/
 highlighter:      pygments
 permalink:        pretty
