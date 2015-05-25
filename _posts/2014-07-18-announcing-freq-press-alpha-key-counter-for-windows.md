@@ -28,8 +28,7 @@ Ever been interested to know how many keys you type per day? I certainly was cur
 
 ## Future releases
 
-* Report on keys & clicks over time and not just today,
-* Nicer application icon,
-* Mouse movement distance calculator.
+* Report on keys & clicks over time as a pretty chart,
+* Nicer application icon.
 
 <a href="http://benclarkrobinson.net/apps/freq-press/Install FreqPress.zip">Click here to download the latest installer of Freq-Press.</a>
