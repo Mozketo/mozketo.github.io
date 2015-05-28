@@ -1,14 +1,11 @@
 ---
 layout: post
-title: Migrating my blog from Wordpress to Github Pages
+title: Migrating from Wordpress to Github Pages
 date: 2015-05-24 15:41
 author: bclarkrobinson
 comments: true
 categories: github
 ---
-Migrating data from Wordpress to Jekyll
-=======================================
-
 This blog was recently running on a self-hosted Wordpress site and found myself dispirited by the user experience of Wordpress. For all its flexibilty and functionality I would find myself shying away from blogging for the following reasons:
 
 * The tools for writing and editing posts - although always improving - compare poorly to my favourite text editor(s),
@@ -36,15 +33,21 @@ sudo gem install jekyll
 
 [Recommended reading](https://help.github.com/articles/using-jekyll-with-pages/)
 
-### Setup a Github Page <-- important
+---
+
+### Setup a Github Page
 
 1. Follow the guide from [Github](https://pages.github.com/), it's really easy to follow along.
 2. Don't forget to add a [.gitignore](https://github.com/Mozketo/mozketo.github.io/blob/master/.gitignore) like this otherwise you'll accidently commit the _site directory.
+
+---
 
 ### Pick a theme
 
 1. Search around for Jekyll themes. For this blog I settled on <https://github.com/muan/scribble>,
 2. Fork or add it to your Github page repo.
+
+---
 
 ### Start posting
 
@@ -53,6 +56,8 @@ sudo gem install jekyll
 3. Ensure that the Front Matter header is at the top of the post <http://jekyllrb.com/docs/frontmatter/>,
 4. For more info read along with the Jekyll [docs](http://jekyllrb.com/docs/posts/).
 
+---
+
 ### Setting the DNS for GitHub Pages on Namecheap
 
-To complete the migration I followed these articles to correctly configure github with a custom URL. <http://davidensinger.com/2013/03/setting-the-dns-for-github-pages-on-namecheap/> and <https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/>.
+To complete the migration I followed these articles to configure github with a custom URL. <http://davidensinger.com/2013/03/setting-the-dns-for-github-pages-on-namecheap/> and <https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/>
