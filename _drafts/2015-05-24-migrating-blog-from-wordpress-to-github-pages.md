@@ -60,4 +60,9 @@ sudo gem install jekyll
 
 ### Setting the DNS for GitHub Pages on Namecheap
 
-To complete the migration I followed these articles to configure github with a custom URL. <http://davidensinger.com/2013/03/setting-the-dns-for-github-pages-on-namecheap/> and <https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/>
+To complete the migration I followed these articles to configure github with a custom URL:
+
+1. <http://davidensinger.com/2013/03/setting-the-dns-for-github-pages-on-namecheap/> and 
+2. <https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/>
+
+Good luck and have fun. :)
