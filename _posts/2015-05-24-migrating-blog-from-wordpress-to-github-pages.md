@@ -13,6 +13,8 @@ This blog was recently running on a self-hosted Wordpress site and found myself 
 * All those posts aren't in any form of source control but instead a MySQL database that needs a *backup strategy*,
 * Wordpress was missing the *fun* factor.
 
+<!--more-->
+
 After looking around at several options I decided on using Github Pages with Jekyll. This option was going to help on all of these points. I can use my favourite text editor(s) with Markdown, no more reminders for security updates, git replaces the DB, and the fun factor is back. Yay :)
 
 Here's my notes to getting started with Jekyll and Github pages.
