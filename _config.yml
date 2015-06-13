@@ -9,8 +9,6 @@ google_analytics: UA-1948867-4
 excerpt_separator: <!--more-->
 
 links:
-  - name:         Home
-    url:          /
   - name:         Twitter
     url:          https://twitter.com/bclarkrobinson
     external:     true
@@ -22,6 +20,7 @@ links:
     external:     true
   - name:         Download FreqPress
     url:          /apps/2014/07/18/announcing-freq-press-alpha-key-counter-for-windows/
+nav:
   - name:         RSS
     url:          /feed.xml 
     rel:          alternate
