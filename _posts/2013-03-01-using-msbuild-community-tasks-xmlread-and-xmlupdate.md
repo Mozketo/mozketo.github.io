@@ -8,6 +8,8 @@ categories: msbuild
 ---
 Importing the MSBuild Community Tasks into a Visual Studio project can make difficult tasks easy. In my scenario I wanted to hook into the BeforeBuild target so I could modify the defaultVersion attribute in a combres.xml before TeamCity created a Release build.
 
+<!--more-->
+
 Firstly you need to import the MSBuild Community Tasks (MSBCT) into the .csproj. And in my scenario I didn't want other developers to have to install MSBCT so I conditionally import on non-debug builds.
 
 {% highlight xml %}

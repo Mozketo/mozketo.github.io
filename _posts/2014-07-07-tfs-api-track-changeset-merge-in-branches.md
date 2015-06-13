@@ -8,6 +8,8 @@ categories: TFS
 ---
 This is a quick and easy way to identify what TFS paths a changeset has been merged into. Simply pass in the changeset ID, source path (like: $/project/dev) and a list of branches to check (like: $/project/release/release-1.0).
 
+<!--more-->
+
 {% highlight csharp %}
 // Track a changeset merged into a possible list of branches.
 public ExtendedMerge[] TrackChangesetIn(int changesetId, string projectPath, IEnumerable branches)

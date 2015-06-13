@@ -6,11 +6,11 @@ author: bclarkrobinson
 comments: true
 categories: apps
 ---
-<a href="/apps/freq-press/Install FreqPress.zip">Click here to download the latest installer of Freq-Press.</a>
-
 <a href="/images/2014/06/Screen-Shot-2014-06-03-at-6.55.33-pm.png"><img src="/images/2014/06/Screen-Shot-2014-06-03-at-6.55.33-pm.png" alt="Screen Shot 2014-06-03 at 6.55.33 pm"/></a>
 
 Ever been interested to know how many keys you type per day? I certainly was curious to know just how much I type each day (especially while I'm replying to a gazillion email).
+
+<a href="/apps/freq-press/Install FreqPress.zip">Click here to download the latest installer of Freq-Press.</a>
 
 ##Features
 
@@ -19,6 +19,8 @@ Ever been interested to know how many keys you type per day? I certainly was cur
 * Easy to use installer,
 * Quick and simple check for updates to stay on the latest version,
 * Lightweight application that doesn't take a ton of system resources.
+
+<!--more-->
 
 ## Privacy
 
