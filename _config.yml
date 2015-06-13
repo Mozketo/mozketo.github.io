@@ -1,10 +1,12 @@
 title:            Ben Clark-Robinson
-description:      
+description:      Technology
+paginate:         5
 url:              http://benclarkrobinson.net
 signoff:          Ben
 disqus_shortname: # disqus comment thread for post header options. ( leave blank if unwanted. )
 facebook_appid:   # appid for like button, remove from /_includes/share.html if unwanted.
 google_analytics: UA-1948867-4
+excerpt_separator: <!--more-->
 
 links:
   - name:         About
@@ -20,9 +22,14 @@ links:
     external:     true
   - name:         Download FreqPress
     url:          /apps/2014/07/18/announcing-freq-press-alpha-key-counter-for-windows/
+  - name:         RSS
+    url:          /feed.xml 
+    rel:          alternate
+    type:         application/atom+xml
 highlighter:      pygments
 permalink:        pretty
 markdown:         redcarpet
 redcarpet:
-  extensions:
+  extensions: 
+    - strikethrough
     - smart
