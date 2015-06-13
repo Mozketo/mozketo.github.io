@@ -20,4 +20,6 @@ Plugin compatible with TeamCity 9.0.5.
 
 ## How does it look?
 
-Here's an example of a build failure notification from Slack. The username & avatar is configurable via Slack Integrations, and the channel to send is configurable from the TeamCity plugin. 
+Here's an example of a build failure notification from Slack. The username & avatar is configurable via Slack Integrations, and the channel to send is configurable from the TeamCity plugin.
+
+![Build failure notification example](/images/2015/06/teamcitybot-new-hotness.png)
