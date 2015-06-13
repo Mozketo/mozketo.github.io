@@ -1,4 +1,4 @@
-title:            Ben Clark-Robinson
+title:            Blog by Ben Clark-Robinson
 description:      Technology
 paginate:         5
 url:              http://benclarkrobinson.net
@@ -9,16 +9,16 @@ google_analytics: UA-1948867-4
 excerpt_separator: <!--more-->
 
 links:
-  - name:         About
-    url:          /profile/2009/05/20/whos-ben-clark-robinson/
+  - name:         Home
+    url:          /
   - name:         Twitter
     url:          https://twitter.com/bclarkrobinson
     external:     true
-  - name:         GitHub
-    url:          http://github.com/mozketo
-    external:     true
   - name:         LinkedIn
     url:          https://au.linkedin.com/in/benclarkrobinson
+    external:     true
+  - name:         GitHub
+    url:          http://github.com/mozketo
     external:     true
   - name:         Download FreqPress
     url:          /apps/2014/07/18/announcing-freq-press-alpha-key-counter-for-windows/
