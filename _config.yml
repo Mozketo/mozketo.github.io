@@ -5,6 +5,7 @@ url:              http://benclarkrobinson.net
 signoff:          Ben
 disqus_shortname: # disqus comment thread for post header options. ( leave blank if unwanted. )
 facebook_appid:   929185340466821 # appid for like button, remove from /_includes/share.html if unwanted.
+twitter_via:      bclarkrobinson # twitter handle for tweet 'via'
 google_analytics: UA-1948867-4
 excerpt_separator: <!--more-->
 
