@@ -5,6 +5,7 @@ date: 2014-07-18 15:41
 author: bclarkrobinson
 comments: true
 categories: apps
+share: y
 ---
 <a href="/images/2014/06/Screen-Shot-2014-06-03-at-6.55.33-pm.png"><img src="/images/2014/06/Screen-Shot-2014-06-03-at-6.55.33-pm.png" alt="Screen Shot 2014-06-03 at 6.55.33 pm"/></a>
 

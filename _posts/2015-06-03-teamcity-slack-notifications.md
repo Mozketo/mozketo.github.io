@@ -5,6 +5,7 @@ date: 2015-06-03 21:52
 author: bclarkrobinson
 comments: true
 categories: slack
+share: y
 ---
 We're currently ~~playing with~~ slowly adopting Slack in our R&D department developers quickly raised a request to have TeamCity pump build failures into a Slack channel. Like this...
 

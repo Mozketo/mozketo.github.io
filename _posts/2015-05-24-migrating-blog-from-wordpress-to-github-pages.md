@@ -5,6 +5,7 @@ date: 2015-05-24 15:41
 author: bclarkrobinson
 comments: true
 categories: github
+share: y
 ---
 This blog was recently running on a self-hosted Wordpress site and found myself dispirited by the user experience of Wordpress. For all its flexibilty and functionality I would find myself shying away from blogging for the following reasons:
 
