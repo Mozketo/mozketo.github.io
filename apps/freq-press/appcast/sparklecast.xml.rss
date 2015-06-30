@@ -6,13 +6,13 @@
       <description>Most recent changes with links to updates.</description>
       <language>en</language>      
          <item>
-            <title>Version 1.8 (Beta)</title>
+            <title>Version 1.9 (Beta)</title>
 			<description>
 				Counting your keypresses and clicks one event at a time.
 			</description>
-            <pubDate>Tue, 25 May 2014 14:00:00 +0000</pubDate>
+            <pubDate>Tue, 30 Jun 2014 14:00:00 +0000</pubDate>
             <sparkle:releaseNotesLink>http://benclarkrobinson.net/apps/freq-press/release-notes.html</sparkle:releaseNotesLink>
-            <enclosure url="http://benclarkrobinson.net/apps/freq-press/Install FreqPress.zip" sparkle:version="1.8.0.0" length="1200000" type="application/octet-stream"/>
+            <enclosure url="http://benclarkrobinson.net/apps/freq-press/Install FreqPress.zip" sparkle:version="1.9.0.0" length="1200000" type="application/octet-stream"/>
          </item>
    </channel>
 </rss>

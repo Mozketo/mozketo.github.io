@@ -19,7 +19,8 @@ Ever been interested to know how many keys you type per day? I certainly was cur
 * Boast your typing and clicking prowess with Slack and HipChat integration built-in,
 * Easy to use installer,
 * Quick and simple check for updates to stay on the latest version,
-* Lightweight application that doesn't take a ton of system resources.
+* Lightweight application that doesn't take a ton of system resources,
+* Charting to show usage in a day or over a fortnight (new feature).
 
 <!--more-->
 
@@ -31,7 +32,7 @@ Ever been interested to know how many keys you type per day? I certainly was cur
 
 ## Future releases
 
-* Report on keys & clicks over time as a pretty chart,
+* Sum the number of keys & clicks over time,
 * Nicer application icon.
 
 <a href="http://benclarkrobinson.net/apps/freq-press/Install FreqPress.zip">Click here to download the latest installer of Freq-Press.</a>
