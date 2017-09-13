@@ -33,3 +33,5 @@ redcarpet:
   extensions: 
     - strikethrough
     - smart
+
+theme: jekyll-theme-cayman
