@@ -27,6 +27,5 @@ nav:
     url:          /feed.xml 
     rel:          alternate
     type:         application/atom+xml
-highlighter:      pygments
 permalink:        pretty
 markdown:         kramdown
