@@ -8,6 +8,7 @@ facebook_appid:   929185340466821 # appid for like button, remove from /_include
 twitter_via:      bclarkrobinson # twitter handle for tweet 'via'
 google_analytics: UA-1948867-4
 excerpt_separator: <!--more-->
+theme: jekyll-theme-cayman
 
 links:
   - name:         Twitter
@@ -28,10 +29,4 @@ nav:
     type:         application/atom+xml
 highlighter:      pygments
 permalink:        pretty
-markdown:         redcarpet
-redcarpet:
-  extensions: 
-    - strikethrough
-    - smart
-
-theme: jekyll-theme-cayman
+markdown:         kramdown
