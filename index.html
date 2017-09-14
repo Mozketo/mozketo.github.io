@@ -7,7 +7,7 @@ layout: index
   {% for post in paginator.posts %}
   <li>
     <!--<small class="datetime muted" data-time="{{ post.date }}">{{ post.date | date_to_string }} </small>-->
-    <h2 class="upcase">
+    <h2>
       <div class='date' data-time="{{ post.date }}">{{ post.date | date_to_string }}</div>
       <a href="{{ post.url }}">{{ post.title }}</a>
     </h2>

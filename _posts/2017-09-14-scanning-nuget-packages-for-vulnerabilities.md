@@ -13,7 +13,7 @@ This option allows developers to be advised early of issues or at build time in 
 
 Here's how to set it up:
 
-## 1. Add SafeNuGet package
+### 1. Add SafeNuGet package
 
 From Visual Studio click the _Tools > NuGet Package Manager > Package Manager Console_ menu item.
 
@@ -27,7 +27,7 @@ Or if you have multiple projects:
 Get-Project -All | Install-Package SafeNuGet
 ```
 
-## 2. Analysis of Packages
+### 2. Analysis of Packages
 
 By default the build will __fail__ if an issue was found otherwise you can can find the following in the _Build Output_ pane of Visual Studio:
 
@@ -36,6 +36,6 @@ Using cached list of unsafe packages
 No vulnerable packages found
 ```
 
-## 3. Options
+### 3. Options
 
 If you'd prefer to not break the build you can configure the tool by editing the `./packages/SafeNuGet.<version>/build/SafeNuGet.targets` file and set the `DontBreakBuild` option to `true`.
