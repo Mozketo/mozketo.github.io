@@ -40,4 +40,4 @@ No vulnerable packages found
 
 If you'd prefer to not break the build you can configure the tool by editing the `./packages/SafeNuGet.<version>/build/SafeNuGet.targets` file and set the `DontBreakBuild` option to `true`.
 
-> <sup>1</sup> _Update 14/Sep/2017_ After testing this process further I'm not 100% happy with it as it is _not_ triggering on known vulerable NuGet packages (such as older JQuery packages). In my next post I investigate [DevAudit](https://github.com/OSSIndex/DevAudit) and [AuditJs](https://www.npmjs.com/package/auditjs).
+> <sup>1</sup> _Update 14/Sep/2017_ After testing this process further I'm not 100% happy with it as it is _not_ triggering on known vulnerable NuGet packages (such as older JQuery packages). In my next post I investigate [DevAudit](https://github.com/OSSIndex/DevAudit) and [AuditJs](https://www.npmjs.com/package/auditjs).
