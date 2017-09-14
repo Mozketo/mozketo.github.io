@@ -13,7 +13,7 @@ Ever been interested to know how many keys you type per day? I certainly was cur
 
 <a href="/apps/freq-press/Install FreqPress.zip">Click here to download the latest installer of Freq-Press.</a>
 
-##Features
+## Features
 
 * Automatically count your key presses and mouse clicks each day,
 * Boast your typing and clicking prowess with Slack and HipChat integration built-in,
