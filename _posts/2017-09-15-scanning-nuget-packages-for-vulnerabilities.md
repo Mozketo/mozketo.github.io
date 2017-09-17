@@ -35,7 +35,7 @@ A sample of the result from NuGet scan:
 ...
 ```
 
-### 3. AuditJS (NPM)
+### 2. AuditJS (NPM)
 
 ```
 cd <path-with-package.json>
