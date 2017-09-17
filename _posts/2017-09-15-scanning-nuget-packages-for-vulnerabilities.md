@@ -24,6 +24,17 @@ cd <path-with-package.config>
 devaudit nuget -note-non-interact > devaudit-nuget-projectname.txt
 ```
 
+A sample of the result from NuGet scan:
+
+```
+...
+[35/49] Microsoft.AspNet.WebPages (3.2.3) no known vulnerabilities. 
+[36/49] jQuery (1.10.2) Error determining vulnerability version range (>=1.4.0 <=1.11.3) | (>=1.12.4 <3.0.0-beta1) in package version range 1.10.2: Parsing failure: unexpected '('; expected <= or >= or < or > or = or ~ or digit (Line 1, Column 1); recently consumed: .
+[VULNERABLE]
+7 known vulnerabilities, 2 affecting installed version. 
+...
+```
+
 ### 3. AuditJS (NPM)
 
 ```
@@ -31,3 +42,16 @@ cd <path-with-package.json>
 npm install auditjs -g
 auditjs-win > auditjs-npm-projectname.txt
 ```
+
+A sample of the result from AuditJs
+
+```
+...
+[2/702] @types/draft-js 0.10.12   No known vulnerabilities...
+[3/702] immutable 3.8.1   No known vulnerabilities...
+...
+```
+
+Hopefully if you're reading this you're taking a proactive approach and for that I congratulate you.
+
+Happy scanning :)
