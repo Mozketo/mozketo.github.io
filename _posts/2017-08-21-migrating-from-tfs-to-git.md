@@ -33,7 +33,39 @@ This creates a local git repo from TFS.
 
 From VSTS create a project or a new repo. Do not set a .gitignore file via the UI.
 
+### Push to the server
+
 ```
 git remote add origin <url>
 git push -u origin master
+or
+git push --all origin
 ```
+
+### Batch file template
+
+```
+@echo off
+@setlocal
+
+set serverpath=https://site/tfs/project
+set tfsproject="$/projectname"
+set repo="projectname"
+
+git tfs list-remote-branches %serverpath%
+
+if [%tfsproject%] == [] GOTO EXIT
+if [%repo%] == [] GOTO EXIT
+
+echo *** Cloning ***
+if not exist %repo% mkdir %repo%
+echo git tfs clone %serverpath% %tfsproject% %repo% --branches=all
+git tfs clone %serverpath% %tfsproject% %repo% --branches=all
+GOTO EXIT
+
+:EXITEMPTY
+echo tfsproject or repo variables are empty. Stopping here.
+
+:EXIT
+```
+
