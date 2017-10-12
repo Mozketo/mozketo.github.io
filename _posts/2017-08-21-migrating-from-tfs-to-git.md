@@ -69,3 +69,14 @@ echo tfsproject or repo variables are empty. Stopping here.
 :EXIT
 ```
 
+### Removing NuGet packages from history
+
+```
+git filter-branch --tree-filter 'rm -rf packages' --prune-empty HEAD
+git for-each-ref --format="%(refname)" refs/original/ | xargs -n 1 git update-ref -d
+echo packages/ >> .gitignore
+git add .gitignore
+git commit -m 'Removing packages from git history'
+git gc
+git push origin master --force
+```
